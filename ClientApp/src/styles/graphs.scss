@@ -1,0 +1,77 @@
+@import "grid";
+@import "colors";
+
+.graphs-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  list-style: none;
+  background-color: white;
+  margin: auto;
+  margin-top: 30px;
+  width: 80vw;
+  border: 3px solid $accent-color;
+}
+
+.graphs-list-item {
+  border-bottom: 2px solid gray;
+  position: relative;
+  height: 60vh;
+  padding-bottom: 40px;
+
+  @media screen and (min-width: $small) {
+    height: 50vh;
+  }
+
+  @media screen and (min-width: $medium) {
+    height: 40vh;
+  }
+
+  .material-icons.red-remove700 {
+    color: #FF1744;
+  }
+
+  .material-icons.purple-watch700 {
+    color: #AA00FF;
+  }
+
+  
+
+  .canvas-container {
+    position: relative;
+    height: 60vh;
+    @media screen and (min-width: $small) {
+      height: 50vh;
+    }
+    @media screen and (min-width: $medium) {
+      height: 40vh;
+    }
+  }
+
+  .graph-controls {
+    @extend .container;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    
+    .remove, .watch {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 5px;
+      cursor: pointer;
+      font-size: 10px;
+      @media screen and (min-width: $small){
+        font-size: 18px;
+        margin-left: 15px;
+      }
+      b {
+        font-size: 14px;
+      }
+    }
+
+    .material-icons.purple-watch700, .material-icons.red-remove700 {
+      margin-right: 5px;
+    }
+  }
+}

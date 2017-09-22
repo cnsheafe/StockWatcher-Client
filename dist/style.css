@@ -1,0 +1,217 @@
+.container, .header, .search, .graphs-list-item .graph-controls {
+  display: flex;
+  align-items: baseline; }
+
+.container, .header, .search, .graphs-list-item .graph-controls {
+  display: flex;
+  align-items: baseline; }
+
+.header {
+  background-color: #00838F;
+  flex-direction: column;
+  justify-content: flex-start; }
+  @media screen and (min-width: 768px) {
+    .header {
+      flex-direction: row; } }
+  .header .header-title {
+    font-family: "Arvo", serif;
+    font-size: 3.8vw;
+    margin: 10px auto 10px;
+    color: #FF9100; }
+    @media screen and (min-width: 768px) {
+      .header .header-title {
+        font-size: 3.5vw;
+        margin: 10px 0 10px 10px; } }
+  .header .header-link-group {
+    margin: 10px auto 10px;
+    margin-bottom: 25px;
+    align-self: center; }
+    @media screen and (min-width: 768px) {
+      .header .header-link-group {
+        margin: 10px 10px 10px auto; } }
+  .header .header-link {
+    padding: 8px;
+    color: white;
+    font-family: "Lato", sans-serif;
+    background-color: #AA00FF;
+    text-decoration: none;
+    text-align: center;
+    margin: 6px 6px 6px 6px;
+    border-radius: 5px; }
+
+.container, .header, .search, .graphs-list-item .graph-controls {
+  display: flex;
+  align-items: baseline; }
+
+.search {
+  margin-top: 5vh;
+  flex-direction: column;
+  font-family: "Lato", sans-serif; }
+  .search .search-label, .search .suggestions-title {
+    font-size: 3.8vw;
+    margin-left: 10vw;
+    color: #AA00FF; }
+    @media screen and (min-width: 576px) {
+      .search .search-label, .search .suggestions-title {
+        font-size: 2.7vw; } }
+    @media screen and (min-width: 768px) {
+      .search .search-label, .search .suggestions-title {
+        font-size: 1.8vw; } }
+  .search .search-input, .search .search-suggestions-list {
+    border: 3px solid #FF9100;
+    font-size: 4.0vw;
+    border-radius: 5px;
+    margin: auto;
+    width: 80vw; }
+    @media screen and (min-width: 576px) {
+      .search .search-input, .search .search-suggestions-list {
+        font-size: 3.3vw; } }
+    @media screen and (min-width: 768px) {
+      .search .search-input, .search .search-suggestions-list {
+        font-size: 2.0vw; } }
+  .search .suggestions-title {
+    margin: 15px 0 0 10vw;
+    font-weight: normal; }
+  .search .search-suggestions-list {
+    list-style: none;
+    flex-direction: column;
+    padding-left: 0;
+    border-radius: 0;
+    border-width: 2px;
+    background-color: white;
+    font-size: 4.0vw; }
+    @media screen and (min-width: 576px) {
+      .search .search-suggestions-list {
+        font-size: 3.0vw; } }
+    @media screen and (min-width: 768px) {
+      .search .search-suggestions-list {
+        font-size: 1.8vw; } }
+    .search .search-suggestions-list :hover {
+      cursor: pointer;
+      background-color: #BDBDBD; }
+    .search .search-suggestions-list .search-suggestions-item {
+      display: flex;
+      border-bottom: 1px solid gray;
+      padding-top: 8px;
+      align-items: center; }
+      .search .search-suggestions-list .search-suggestions-item .material-icons.purple700 {
+        color: #D500F9;
+        margin-right: 8px;
+        font-size: 36px; }
+
+.container, .header, .search, .graphs-list-item .graph-controls {
+  display: flex;
+  align-items: baseline; }
+
+.graphs-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  list-style: none;
+  background-color: white;
+  margin: auto;
+  margin-top: 30px;
+  width: 80vw;
+  border: 3px solid #FF9100; }
+
+.graphs-list-item {
+  border-bottom: 2px solid gray;
+  position: relative;
+  height: 60vh;
+  padding-bottom: 40px; }
+  @media screen and (min-width: 576px) {
+    .graphs-list-item {
+      height: 50vh; } }
+  @media screen and (min-width: 768px) {
+    .graphs-list-item {
+      height: 40vh; } }
+  .graphs-list-item .material-icons.red-remove700 {
+    color: #FF1744; }
+  .graphs-list-item .material-icons.purple-watch700 {
+    color: #AA00FF; }
+  .graphs-list-item .canvas-container {
+    position: relative;
+    height: 60vh; }
+    @media screen and (min-width: 576px) {
+      .graphs-list-item .canvas-container {
+        height: 50vh; } }
+    @media screen and (min-width: 768px) {
+      .graphs-list-item .canvas-container {
+        height: 40vh; } }
+  .graphs-list-item .graph-controls {
+    flex-direction: row;
+    align-items: center;
+    width: 100%; }
+    .graphs-list-item .graph-controls .remove, .graphs-list-item .graph-controls .watch {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-left: 5px;
+      cursor: pointer;
+      font-size: 10px; }
+      @media screen and (min-width: 576px) {
+        .graphs-list-item .graph-controls .remove, .graphs-list-item .graph-controls .watch {
+          font-size: 18px;
+          margin-left: 15px; } }
+      .graphs-list-item .graph-controls .remove b, .graphs-list-item .graph-controls .watch b {
+        font-size: 14px; }
+    .graphs-list-item .graph-controls .material-icons.purple-watch700, .graphs-list-item .graph-controls .material-icons.red-remove700 {
+      margin-right: 5px; }
+
+.container, .header, .search, .graphs-list-item .graph-controls {
+  display: flex;
+  align-items: baseline; }
+
+.modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow: auto;
+  background-color: white;
+  z-index: 100;
+  border: #FF9100 3px solid;
+  padding: 10px; }
+  @media screen and (min-width: 576px) {
+    .modal {
+      width: 50vw;
+      top: 20vh; } }
+  @media screen and (min-width: 768px) {
+    .modal {
+      width: 40vw;
+      top: 15vh; } }
+  @media screen and (min-width: 992px) {
+    .modal {
+      width: 30vw; } }
+  .modal .modal-form {
+    display: flex;
+    flex-direction: column; }
+    .modal .modal-form .modal-price {
+      width: 50%; }
+  .modal .modal-header {
+    font-family: "Arvo", serif;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    margin: 10px auto; }
+  .modal .modal-explanation {
+    font-family: "Lato", sans-serif; }
+  .modal .modal-price {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield; }
+
+.dim-background {
+  background-color: rgba(0, 188, 212, 0.4); }
+
+body {
+  background-color: #00BCD4;
+  height: 100vh; }
+
+.hide {
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */

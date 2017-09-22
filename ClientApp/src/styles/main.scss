@@ -1,0 +1,15 @@
+@import "grid";
+@import "colors";
+@import "header";
+@import "search";
+@import "graphs";
+@import "modal";
+
+body {
+    background-color: $background-color;
+    height: 100vh;
+}
+
+.hide {
+    display: none;
+}
