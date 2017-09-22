@@ -1,0 +1,5 @@
+node_modules
+.awcache
+.sass-cache
+ClientApp/dist
+client.bundle*

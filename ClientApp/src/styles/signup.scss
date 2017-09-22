@@ -1,0 +1,44 @@
+@import "colors";
+@import "grid";
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 15vh;
+  width: 60vw;
+  background-color: white;
+  min-width: 280px;
+
+
+  font-family: "Lato", sans-serif;
+  border: 3px solid $accent-color;
+
+  .signup-title {
+      font-family: "Arvo", serif;
+  }
+
+  .signup-form {
+    margin-bottom: 15px;
+  }
+
+  .signup-username, 
+  .signup-password,
+  .signup-phone {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    input {
+      flex-basis: 50%;
+    }
+  }
+
+  .signup-submit {
+    button {
+      float: right;
+    }
+  }
+
+}
