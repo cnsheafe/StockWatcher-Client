@@ -4,12 +4,12 @@ import { Company } from "../store/schema";
 import store, { IState } from "../store/store";
 import { connect } from "react-redux";
 
-interface ModalProps {
+export interface ModalProps {
   showModal: boolean,
   modalSymbol: string
 }
 
-class Modal extends React.Component<ModalProps, {}> {
+export class Modal extends React.Component<ModalProps, {}> {
   private bodyElement: HTMLElement;
   private keyCallback: (event: KeyboardEvent)  => void;
   private mouseCallback: (event: MouseEvent) => void;

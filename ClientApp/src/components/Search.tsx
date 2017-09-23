@@ -6,11 +6,11 @@ import { IState } from "../store/store";
 import { Company } from "../store/schema";
 import { ListSearchResults,  addGraphAsync } from "../store/actions";
 
-interface SearchProps {
+export interface SearchProps {
   searchResults: Array<Company>
 }
 
-class Search extends React.Component<SearchProps, {}> {
+export class Search extends React.Component<SearchProps, {}> {
 
   suggestionHandler(event: React.MouseEvent<HTMLUListElement>) {
     let target = event.target as HTMLElement;
