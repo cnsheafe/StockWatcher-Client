@@ -38,14 +38,6 @@ export interface ToggleModalDisplay {
   symbol?: string
 }
 
-export interface AddWatch {
-  type: "ADD_WATCH",
-  company: Company,
-  targetPrice: number
-}
-
-export type ValidAction = SearchResult & AddGraph & RemoveGraph & ToggleModalDisplay & AddWatch;
-
 // Action for updating state with list of matching company names from database
 // Used on Search.tsx
 export const ListSearchResults: ActionCreator<SearchResult> =
