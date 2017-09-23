@@ -17,6 +17,8 @@ const clientBundleOutputDir = path.normalize(`${__dirname}/dist`);
 appConfig.createTsConfig(__dirname, appSettings["out-dir"]);
 
 module.exports = env => {
+    let isProd = env === "prod" ? true: false;
+    
     const sharedConfig = () => ({
         stats: {
             modules: false
