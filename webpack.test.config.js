@@ -20,7 +20,7 @@ module.exports = () => {
 
   const sharedConfig = () => ({
     resolve: {
-      extensions: [".js", ".ts", ".tsx"]
+      extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
     output: {
       path: clientBundleOutputDir,
@@ -58,6 +58,9 @@ module.exports = () => {
   
   const reducerEntry = path
     .normalize(`${appSettings["input-dir"]}/src/store/reducer.test.ts`)
+  
+  const componentsEntry = path
+    .normalize(`${appSettings["input-dir"]}/src/components/components.test.tsx`);
 
   const actionsConfig = merge(sharedConfig(), {
     entry: {
@@ -77,5 +80,35 @@ module.exports = () => {
     }
   });
 
-  return [actionsConfig, actionsAsyncConfig, reducerConfig];
+  const componentsConfig = merge(sharedConfig(), {
+    entry: {
+      "components": componentsEntry
+    },
+    module: {
+      rules: [{
+        test: /\.tsx?$/,
+        include: [
+          appSettings["input-dir"]
+        ],
+        loader: "awesome-typescript-loader",
+        options: {
+          useBabel: true,
+          babelOptions: {
+            presets: [
+              "es2015",
+              "react"
+            ]
+          },
+          useCache: true
+        }
+      }]
+    },
+    externals: {
+      "react/lib/ReactContext": true,
+      "react/lib/ExecutionEnvironment": true,
+      "react/addons": true
+    }
+  });
+
+  return [actionsConfig, actionsAsyncConfig, reducerConfig, componentsConfig];
 }
