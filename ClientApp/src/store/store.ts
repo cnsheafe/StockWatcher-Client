@@ -15,7 +15,10 @@ import {
   REM_GRAPH,
   TOGGLE_MODAL,
   ADD_WATCH,
-  ValidAction
+  SearchResult,
+  AddGraph,
+  RemoveGraph,
+  ToggleModalDisplay
 } from "./actions";
 
 
@@ -27,20 +30,23 @@ export interface IState {
   modalSymbol: string
 }
 
+type ValidAction = SearchResult | AddGraph | RemoveGraph | ToggleModalDisplay;
 
-function reducer(state: IState, action: ValidAction): IState {
+export function reducer(state: IState, action: ValidAction): IState {
   switch (action.type) {
     case SEARCH:
-      return Object.assign({}, state, { searchResults: action.results });
+      const searchAction = <SearchResult>action;
+      return Object.assign({}, state, { searchResults: searchAction.results });
     case ADD_GRAPH:
+      const graphAction = <AddGraph>action;
       const count: number = state.graphs.length;
       const index: number = count > 0 ? state.graphs[count - 1].index + 1 : 0;
       const newGraph: Graph = {
         index: index,
         graphId: `graph${index}`,
-        company: action.company,
-        dataset: action.dataPoints,
-        labels: action.labels
+        company: graphAction.company,
+        dataset: graphAction.dataPoints,
+        labels: graphAction.labels
       }
 
       return Object.assign({}, state,
@@ -54,7 +60,7 @@ function reducer(state: IState, action: ValidAction): IState {
 
     case REM_GRAPH:
       const indexToRemove = state.graphs.findIndex(elm => {
-        return elm.graphId === action.graphId;
+        return elm.graphId === (<RemoveGraph>action).graphId;
       });
 
       const newGraphList = [...state.graphs];
@@ -65,11 +71,11 @@ function reducer(state: IState, action: ValidAction): IState {
         graphs: newGraphList
       });
 
-    case TOGGLE_MODAL || ADD_WATCH:
+    case TOGGLE_MODAL:
       return Object.assign({}, state, 
       {
         showModal: !state.showModal,
-        modalSymbol: action.symbol
+        modalSymbol: (<ToggleModalDisplay>action).symbol
       })
     default:
       return state;
