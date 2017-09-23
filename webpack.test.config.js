@@ -7,7 +7,7 @@ const webpack = require("webpack");
 const options = {
   "client-root": "ClientApp",
   "input-dir": path.normalize(`${__dirname}/ClientApp/`),
-  "entry-file": path.normalize(`${__dirname}/ClientApp/src/store/actionsAsync.tests.ts`),
+  "entry-file": path.normalize(`${__dirname}/ClientApp/src/store/actionsAsync.test.ts`),
   "output-dir": path.normalize(`${__dirname}/__tests__`)
 };
 
@@ -51,10 +51,13 @@ module.exports = () => {
   });
 
   const actionsEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/store/actions.tests.ts`);
+    .normalize(`${appSettings["input-dir"]}/src/store/actions.test.ts`);
 
   const actionsAsyncEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/store/actionsAsync.tests.ts`);
+    .normalize(`${appSettings["input-dir"]}/src/store/actionsAsync.test.ts`);
+  
+  const reducerEntry = path
+    .normalize(`${appSettings["input-dir"]}/src/store/reducer.test.ts`)
 
   const actionsConfig = merge(sharedConfig(), {
     entry: {
@@ -68,6 +71,11 @@ module.exports = () => {
     }
   });
 
-  // return [actionsConfig];
-  return [actionsConfig, actionsAsyncConfig];
+  const reducerConfig = merge(sharedConfig(), {
+    entry: {
+      "reducer": reducerEntry
+    }
+  });
+
+  return [actionsConfig, actionsAsyncConfig, reducerConfig];
 }
