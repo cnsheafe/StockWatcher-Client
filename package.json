@@ -65,6 +65,7 @@
     "source-map-loader": "^0.2.1",
     "ts-jest": "^20.0.14",
     "typescript": "^2.5.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.8.2",
     "webpack-hot-middleware": "^2.19.1",
