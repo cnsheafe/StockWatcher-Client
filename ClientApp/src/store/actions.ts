@@ -52,9 +52,15 @@ export const addGraphAsync =
   (company: Company) => {
 
     return function(dispatch: Dispatch<IState>) {
+      const headers = new Headers({
+        "Accept": "application/json"
+      });
       let stockRequest = new Request(
-        `/stockprice?stocksymbol=${company.symbol}`,
-        { method: "GET" });
+        `https://stock-watcher-app.herokuapp.com/stockprice/?stocksymbol=${company.symbol}`,
+        { 
+          method: "GET",
+          headers: headers
+        });
       
       return fetch(stockRequest)
         .then(res => {

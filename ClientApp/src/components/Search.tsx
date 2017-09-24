@@ -64,8 +64,13 @@ export class Search extends React.Component<SearchProps, {}> {
 }
 
 function fetchCompanies(searchPhrase: string, isSymbol: boolean): Promise<JSON> {
-  let searchRequest = new Request(`/company/?searchphrase=${searchPhrase}&issymbol=${isSymbol.toString()}`, {
-    method: "GET"
+  console.log(isSymbol.toString());
+  const headers = new Headers({
+    "Accept": "application/json"
+  });
+  let searchRequest = new Request(`https://stock-watcher-app.herokuapp.com/company/?searchphrase=${searchPhrase}&issymbol=${isSymbol.toString()}`, {
+    method: "GET",
+    headers: headers
   });
 
   return fetch(searchRequest)
