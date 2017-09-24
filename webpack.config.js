@@ -18,7 +18,7 @@ appConfig.createTsConfig(__dirname, appSettings["out-dir"]);
 
 module.exports = env => {
     let isProd = env === "prod" ? true: false;
-    
+
     const sharedConfig = () => ({
         stats: {
             modules: false
@@ -74,17 +74,18 @@ module.exports = env => {
         output: {
             path: clientBundleOutputDir
         },
-        plugins: [
+        plugins: [!isProd ?
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map', // Remove this line if you prefer inline source maps
                 moduleFilenameTemplate: path.relative(clientBundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
-            })
+            }) :
+            new webpack.optimize.UglifyJsPlugin()
         ],
         devServer: {
             contentBase: path.normalize(`${__dirname}/dist`),
             port: 5000,
             hot: true,
-            hotOnly: true,
+            hotOnly: false,
             open: true,
         }
     });
