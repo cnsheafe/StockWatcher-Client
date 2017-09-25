@@ -92,7 +92,9 @@ export class Modal extends React.Component<ModalProps, {}> {
         target.className === "modal-phone" ||
         target.className === "modal-form" ||
         target.className === "modal-button" ||
-        target.tagName === "LABEL" && 
+        target.tagName === "LABEL" ||
+        target.tagName === "P" || 
+        target.className === "modal-header" && 
         this.props.showModal
       )) 
       {
