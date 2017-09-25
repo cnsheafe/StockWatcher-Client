@@ -1,88 +1,80 @@
 @import "grid";
 @import "colors";
-
 .search {
-  @extend .container;
-  margin-top: 5vh;
-  flex-direction: column;
-  font-family: "Lato", sans-serif;
-
-  @media screen and (min-width: $medium) {
-  }
-
-  .search-label {
-    font-size: 3.8vw;
-    margin-left: 10vw;
-    color: $accent-purple-color;
-
-    @media screen and (min-width: $small) {
-      font-size: 2.7vw;
-    }
-
-    @media screen and (min-width: $medium) {
-      font-size: 1.8vw;
-    }
-  }
-
-  .search-input {
-    border: 3px solid $accent-color;
-    font-size: 4.0vw;
-    border-radius: 5px;
-    margin: auto;
-    width: 80vw;
-
-    @media screen and (min-width: $small) {
-      font-size: 3.3vw;
-    }
-
-    @media screen and (min-width: $medium) {
-      font-size: 2.0vw;
-    }
-  }
-
-  .suggestions-title {
-    @extend .search-label;
-    margin: 15px 0 0 10vw;
-    font-weight: normal;
-  }
-
-
-  .search-suggestions-list {
-    @extend .search-input;
-    list-style: none;
+    @extend .container;
+    margin-top: 5vh;
     flex-direction: column;
-    padding-left: 0;
-    border-radius: 0;
-    border-width: 2px;
-
-    background-color: white;
-    font-size: 4.0vw;
-
-    @media screen and (min-width: $small) {
-      font-size: 3.0vw;
+    font-family: "Lato", sans-serif;
+    @media screen and (min-width: $medium) {}
+    .search-label {
+        font-size: 3.8vw;
+        margin-left: 9.5vw;
+        margin-bottom: 5px;
+        // color: $accent-purple-color;
+        // color: #ffffff;
+        color: $header-color;
+        @media screen and (min-width: $small) {
+            font-size: 2.7vw;
+        }
+        @media screen and (min-width: $medium) {
+            font-size: 1.8vw;
+        }
+        @media screen and (min-width: $large) {
+            margin-left: 10vw;
+        }
     }
-
-    @media screen and (min-width: $medium) {
-      font-size: 1.8vw;
+    .search-input {
+        border: 3px solid $accent-color;
+        font-size: 4.0vw;
+        border-radius: 5px;
+        margin: auto;
+        width: 80vw;
+        @media screen and (min-width: $small) {
+            font-size: 3.3vw;
+        }
+        @media screen and (min-width: $medium) {
+            font-size: 2.0vw;
+        }
     }
-
-    :hover {
-      cursor: pointer;
-      background-color: #BDBDBD;
+    .suggestions-title {
+        @extend .search-label;
+        margin: 15px 0 5px 9.5vw;
+        font-weight: normal;
+        @media screen and (min-width: $large) {
+            margin-left: 10vw;
+        }
     }
-
-    .search-suggestions-item {
-      display: flex;
-      border-bottom: 1px solid gray;
-      padding-top: 8px;
-      align-items: center;
-
-      .material-icons.purple700 {
-        color: $accent-purple-dark-color;
-        margin-right: 8px;
-        font-size: 36px;
-      }
+    .search-suggestions-list {
+        @extend .search-input;
+        list-style: none;
+        flex-direction: column;
+        padding-left: 0;
+        border-radius: 0;
+        border-width: 2px;
+        background-color: white;
+        font-size: 4.0vw;
+        @media screen and (min-width: $small) {
+            font-size: 3.0vw;
+        }
+        @media screen and (min-width: $medium) {
+            font-size: 1.8vw;
+        }
+         :hover {
+            cursor: pointer;
+            background-color: #BDBDBD;
+        }
+        .search-suggestions-item {
+            display: flex;
+            border-bottom: 1px solid gray;
+            padding-top: 8px;
+            align-items: center;
+            .material-icons.purple700 {
+                // color: $accent-purple-dark-color;
+                color: $accent-purple-light-color;
+                margin-right: 8px;
+                margin-left: 5px;
+                font-size: 36px;
+            }
+        }
     }
-  }
 }
-

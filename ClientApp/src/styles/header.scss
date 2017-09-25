@@ -1,49 +1,46 @@
 @import "grid";
 @import "colors";
-
 .header {
-  @extend .container;
-  background-color: $header-color;
-  flex-direction: column;
-  justify-content: flex-start;
-  // margin-bottom: 30px;
-  @media screen and (min-width: $medium) {
-    flex-direction: row;
-  }
-
-  .header-title {
-    font-family: "Arvo", serif;
-    font-size: 3.8vw;
-    margin: 10px auto 10px;
-    color: $accent-color;
+    @extend .container;
+    background-color: $header-color;
+    // background-color: #FFFFFF;
+    flex-direction: column;
+    justify-content: flex-start;
+    // margin-bottom: 30px;
     @media screen and (min-width: $medium) {
-      font-size: 3.5vw;
-      margin: 10px 0 10px 10px;
+        flex-direction: row;
     }
-  }
-
-  .header-link-group {
-    margin: 10px auto 10px;
-    margin-bottom: 25px;
-    align-self: center;
-    @media screen and (min-width: $medium) {
-      margin: 10px 10px 10px auto;
+    .header-title {
+        font-family: "Arvo", serif;
+        font-size: 3.8vw;
+        margin: 10px auto 10px;
+        // color: $accent-color;
+        // color: $header-color;
+        color: #ffffff;
+        @media screen and (min-width: $medium) {
+            font-size: 3.5vw;
+            margin: 10px 0 10px 10px;
+        }
     }
-  }
-
-  .header-link {
-    padding: 8px;
-    color: white;
-    font-family: "Lato", sans-serif;
-    // background-image: linear-gradient(to top, $accent-purple-dark-color, $accent-purple-color);
-    background-color: $accent-purple-color;
-    text-decoration: none;
-    text-align: center;
-    margin: 6px 6px 6px 6px;
-    // border: 5px outset #FF9100;
-    border-radius: 5px;
-    @media screen and (min-width: $medium) {
+    .header-link-group {
+        margin: 10px auto 10px;
+        margin-bottom: 25px;
+        align-self: center;
+        @media screen and (min-width: $medium) {
+            margin: 10px 10px 10px auto;
+        }
     }
-  }
+    .header-link {
+        padding: 8px;
+        color: white;
+        font-family: "Lato", sans-serif;
+        // background-image: linear-gradient(to top, $accent-purple-dark-color, $accent-purple-color);
+        background-color: $accent-purple-color;
+        text-decoration: none;
+        text-align: center;
+        margin: 6px 6px 6px 6px;
+        // border: 5px outset #FF9100;
+        border-radius: 5px;
+        @media screen and (min-width: $medium) {}
+    }
 }
-

@@ -1,63 +1,57 @@
 @import "colors";
 @import "grid";
-
 .modal {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  width: 90vw;
-  top: 30vh;
-  left: 0;
-  right: 0;
-  margin: auto;
-  overflow: auto;
-  background-color: white;
-  z-index: 100;
-  border: $accent-color 3px solid;
-  padding: 10px;
-
-  @media screen and (min-width: $small) {
-    width: 50vw;
-    top: 20vh;
-  }
-
-  @media screen and (min-width: $medium) {
-    width: 40vw;
-    top: 15vh;
-  }
-
-  @media screen and (min-width: $large) {
-    width: 30vw;
-  }
-
-  .modal-form {
+    position: fixed;
     display: flex;
     flex-direction: column;
-
-    .modal-price {
-      width: 50%;
+    width: 90vw;
+    top: 30vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: auto;
+    background-color: white;
+    z-index: 100;
+    border: $accent-color 3px solid;
+    padding: 10px;
+    @media screen and (min-width: $small) {
+        width: 50vw;
+        top: 20vh;
     }
-  }
-
-  .modal-header {
-    font-family: "Arvo", serif;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-    margin: 10px auto;
-  }
-
-  .modal-explanation {
-    font-family: "Lato", sans-serif;
-  }
-
-  .modal-price {
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-  }
-
+    @media screen and (min-width: $medium) {
+        width: 40vw;
+        top: 15vh;
+    }
+    @media screen and (min-width: $large) {
+        width: 30vw;
+    }
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        .modal-price {
+            width: 50%;
+            margin-bottom: 5px;
+        }
+        .modal-phone {
+            margin-bottom: 5px;
+        }
+    }
+    .modal-header {
+        font-family: "Arvo", serif;
+        font-size: 24px;
+        font-weight: normal;
+        text-align: center;
+        margin: 10px auto;
+    }
+    .modal-explanation {
+        font-family: "Lato", sans-serif;
+    }
+    .modal-price {
+        -moz-appearance: textfield;
+        -webkit-appearance: textfield;
+    }
 }
 
 .dim-background {
-  background-color: rgba($background-color, 0.4);
+    background-color: rgba($background-color, 0.4);
 }
