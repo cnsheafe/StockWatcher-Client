@@ -17,7 +17,7 @@
     font-family: "Arvo", serif;
     font-size: 3.8vw;
     margin: 10px auto 10px;
-    color: #FF9100; }
+    color: #ffffff; }
     @media screen and (min-width: 768px) {
       .header .header-title {
         font-size: 3.5vw;
@@ -50,19 +50,25 @@
   .search .search-label, .search .suggestions-title {
     font-size: 3.8vw;
     margin-left: 10vw;
-    color: #AA00FF; }
+    margin-bottom: 5px;
+    color: #00838F; }
     @media screen and (min-width: 576px) {
       .search .search-label, .search .suggestions-title {
         font-size: 2.7vw; } }
     @media screen and (min-width: 768px) {
       .search .search-label, .search .suggestions-title {
         font-size: 1.8vw; } }
+    @media screen and (min-width: 992px) {
+      .search .search-label, .search .suggestions-title {
+        margin-left: 10vw; } }
   .search .search-input, .search .search-suggestions-list {
     border: 3px solid #FF9100;
+    box-sizing: border-box;
     font-size: 4.0vw;
     border-radius: 5px;
     margin: auto;
-    width: 80vw; }
+    width: 80vw;
+    padding: 5px; }
     @media screen and (min-width: 576px) {
       .search .search-input, .search .search-suggestions-list {
         font-size: 3.3vw; } }
@@ -70,12 +76,15 @@
       .search .search-input, .search .search-suggestions-list {
         font-size: 2.0vw; } }
   .search .suggestions-title {
-    margin: 15px 0 0 10vw;
+    margin: 15px 0 5px 10vw;
     font-weight: normal; }
+    @media screen and (min-width: 992px) {
+      .search .suggestions-title {
+        margin-left: 10vw; } }
   .search .search-suggestions-list {
     list-style: none;
     flex-direction: column;
-    padding-left: 0;
+    padding: 0;
     border-radius: 0;
     border-width: 2px;
     background-color: white;
@@ -91,13 +100,17 @@
       background-color: #BDBDBD; }
     .search .search-suggestions-list .search-suggestions-item {
       display: flex;
-      border-bottom: 1px solid gray;
+      box-sizing: border-box;
+      border-top: 1px solid gray;
       padding-top: 8px;
       align-items: center; }
       .search .search-suggestions-list .search-suggestions-item .material-icons.purple700 {
-        color: #D500F9;
+        color: #AA60FF;
         margin-right: 8px;
+        margin-left: 5px;
         font-size: 36px; }
+    .search .search-suggestions-list .search-suggestions-item:first-child {
+      border-top: 0; }
 
 .container, .header, .search, .graphs-list-item .graph-controls {
   display: flex;
@@ -106,7 +119,8 @@
 .graphs-list {
   display: flex;
   flex-direction: column;
-  padding-left: 0;
+  box-sizing: border-box;
+  padding: 0;
   list-style: none;
   background-color: white;
   margin: auto;
@@ -115,8 +129,9 @@
   border: 3px solid #FF9100; }
 
 .graphs-list-item {
-  border-bottom: 2px solid gray;
   position: relative;
+  box-sizing: border-box;
+  border-top: 2px solid gray;
   height: 60vh;
   padding-bottom: 40px; }
   @media screen and (min-width: 576px) {
@@ -128,7 +143,7 @@
   .graphs-list-item .material-icons.red-remove700 {
     color: #FF1744; }
   .graphs-list-item .material-icons.purple-watch700 {
-    color: #AA00FF; }
+    color: #AA60FF; }
   .graphs-list-item .canvas-container {
     position: relative;
     height: 60vh; }
@@ -142,7 +157,8 @@
     flex-direction: row;
     align-items: center;
     width: 100%; }
-    .graphs-list-item .graph-controls .remove, .graphs-list-item .graph-controls .watch {
+    .graphs-list-item .graph-controls .remove,
+    .graphs-list-item .graph-controls .watch {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -150,13 +166,19 @@
       cursor: pointer;
       font-size: 10px; }
       @media screen and (min-width: 576px) {
-        .graphs-list-item .graph-controls .remove, .graphs-list-item .graph-controls .watch {
+        .graphs-list-item .graph-controls .remove,
+        .graphs-list-item .graph-controls .watch {
           font-size: 18px;
           margin-left: 15px; } }
-      .graphs-list-item .graph-controls .remove b, .graphs-list-item .graph-controls .watch b {
+      .graphs-list-item .graph-controls .remove b,
+      .graphs-list-item .graph-controls .watch b {
         font-size: 14px; }
-    .graphs-list-item .graph-controls .material-icons.purple-watch700, .graphs-list-item .graph-controls .material-icons.red-remove700 {
+    .graphs-list-item .graph-controls .material-icons.purple-watch700,
+    .graphs-list-item .graph-controls .material-icons.red-remove700 {
       margin-right: 5px; }
+
+.graphs-list-item:first-child {
+  border-top: none; }
 
 .container, .header, .search, .graphs-list-item .graph-controls {
   display: flex;
@@ -167,7 +189,7 @@
   display: flex;
   flex-direction: column;
   width: 90vw;
-  top: 30vh;
+  top: 20vh;
   left: 0;
   right: 0;
   margin: auto;
@@ -190,8 +212,6 @@
   .modal .modal-form {
     display: flex;
     flex-direction: column; }
-    .modal .modal-form .modal-price {
-      width: 50%; }
   .modal .modal-header {
     font-family: "Arvo", serif;
     font-size: 24px;
@@ -201,15 +221,64 @@
   .modal .modal-explanation {
     font-family: "Lato", sans-serif; }
   .modal .modal-price {
+    width: 30%;
+    margin-bottom: 5px;
     -moz-appearance: textfield;
     -webkit-appearance: textfield; }
+  .modal .modal-phone {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row; }
+    .modal .modal-phone input {
+      margin-right: 5px; }
+    .modal .modal-phone input:first-child {
+      width: 15%; }
+    .modal .modal-phone input:nth-child(2) {
+      width: 25%; }
+    .modal .modal-phone input:last-child {
+      width: 25%; }
 
-.dim-background {
-  background-color: rgba(0, 188, 212, 0.4); }
+.dim-background::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: fixed;
+  background-color: #00838F;
+  bottom: 0;
+  right: 0;
+  padding: 0 5px 0 0;
+  margin: 0;
+  margin-top: 20px;
+  width: 100vw; }
+  .footer .footer-links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0; }
+    .footer .footer-links img {
+      width: 20px;
+      height: 20px;
+      margin-right: 3px; }
 
 body {
-  background-color: #00BCD4;
-  height: 100vh; }
+  background-color: #ffffff;
+  height: 100vh;
+  position: relative;
+  min-height: 100vh; }
+
+main {
+  padding-bottom: 50px; }
 
 .hide {
   display: none; }
