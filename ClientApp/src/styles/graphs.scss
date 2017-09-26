@@ -3,7 +3,8 @@
 .graphs-list {
     display: flex;
     flex-direction: column;
-    padding-left: 0;
+    box-sizing: border-box;
+    padding: 0;
     list-style: none;
     background-color: white;
     margin: auto;
@@ -13,8 +14,9 @@
 }
 
 .graphs-list-item {
-    border-bottom: 2px solid gray;
     position: relative;
+    box-sizing: border-box;
+    border-top: 2px solid gray;
     height: 60vh;
     padding-bottom: 40px;
     @media screen and (min-width: $small) {
@@ -65,4 +67,8 @@
             margin-right: 5px;
         }
     }
+}
+
+.graphs-list-item:first-child {
+    border-top: none;
 }
