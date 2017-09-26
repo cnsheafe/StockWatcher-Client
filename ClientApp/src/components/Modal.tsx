@@ -35,6 +35,7 @@ export class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
+
     return (
       <div id="modal" className={this.props.showModal ? "modal" : "hide"}>
         <h3 className="modal-header">SMS Alert for Stock Price</h3>
@@ -66,12 +67,12 @@ export class Modal extends React.Component<ModalProps, {}> {
 
   componentDidMount() {
     this.bodyElement = document.getElementsByTagName("body")[0] as HTMLElement;
-
+   
     this.keyCallback = (event: KeyboardEvent) => {
       // Look for ESC Key
       if (event.which === 27 && this.props.showModal) {
         store.dispatch(toggleModalDisplay());
-        this.bodyElement.classList.toggle(this.dimCSS);
+
 
         this.bodyElement
           .removeEventListener("keyup", this.keyCallback);
@@ -99,7 +100,6 @@ export class Modal extends React.Component<ModalProps, {}> {
       )) 
       {
         store.dispatch(toggleModalDisplay());
-        this.bodyElement.classList.toggle(this.dimCSS);
 
         this.bodyElement
           .removeEventListener("keyup", this.keyCallback);
@@ -112,8 +112,8 @@ export class Modal extends React.Component<ModalProps, {}> {
 
   componentDidUpdate() {
 
+    this.bodyElement.classList.toggle(this.dimCSS);
     if (this.props.showModal) {
-      this.bodyElement.classList.toggle(this.dimCSS);
       this.bodyElement.addEventListener("keyup", this.keyCallback);
       this.bodyElement.addEventListener("click", this.mouseCallback);
     }
