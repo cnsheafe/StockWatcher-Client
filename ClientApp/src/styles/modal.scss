@@ -32,13 +32,6 @@
     .modal-form {
         display: flex;
         flex-direction: column;
-        .modal-price {
-            width: 50%;
-            margin-bottom: 5px;
-        }
-        .modal-phone {
-            margin-bottom: 5px;
-        }
     }
 
     .modal-header {
@@ -54,9 +47,30 @@
     }
 
     .modal-price {
+        width: 30%;
+        margin-bottom: 5px;
         -moz-appearance: textfield;
         -webkit-appearance: textfield;
     }
+
+    .modal-phone {
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        input {
+            margin-right: 5px;
+        }
+        input:first-child {
+            width: 15%;
+        }
+        input:nth-child(2) {
+            width: 25%;
+        }
+        input:last-child {
+            width: 25%;
+        }
+    }
+
 }
 
 .dim-background::after {
