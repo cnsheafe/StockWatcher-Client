@@ -18,10 +18,11 @@ export class Modal extends React.Component<ModalProps, {}> {
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const symbol = this.props.modalSymbol;
-    let tmp = document.getElementById("modal-price") as HTMLInputElement;
-    const price: number = +tmp.value;
-    tmp = document.getElementById("modal-phone") as HTMLInputElement;
-    const phone = tmp.value;
+    const price = +(document.getElementById("modal-price") as HTMLInputElement).value;
+    const areaCode = (document.getElementById("phone-area-code") as HTMLInputElement).value;
+    const field1 = (document.getElementById("phone-field-1") as HTMLInputElement).value;
+    const field2 = (document.getElementById("phone-field-2") as HTMLInputElement).value;
+    const phone = `+1${areaCode}${field1}${field2}`;
 
     store.dispatch(addWatchAsync(symbol, price, phone))
       .then(status => {
@@ -35,7 +36,6 @@ export class Modal extends React.Component<ModalProps, {}> {
   }
 
   render() {
-
     return (
       <div id="modal" className={this.props.showModal ? "modal" : "hide"}>
         <h3 className="modal-header">SMS Alert for Stock Price</h3>
@@ -46,16 +46,21 @@ export class Modal extends React.Component<ModalProps, {}> {
           USA numbers. 
         </p>
         <form className="modal-form" onSubmit={e => this.handleSubmit(e)}>
-          <label htmlFor="modal-price">Price</label>
+          <label htmlFor="modal-price">Price(USD)</label>
           <input 
             type="number" 
             step="0.01"
             min="0.01"
             max="2000"
             className="modal-price" 
-            id="modal-price"/>
-          <label htmlFor="modal-phone" >Phone Number</label>
-          <input type="tel" className="modal-phone" id="modal-phone"/>
+            id="modal-price"
+            placeholder="10.00" />
+          <label htmlFor="modal-phone">Phone Number</label>
+          <div id="modal-phone" className="modal-phone">
+            <input id="phone-area-code" type="tel" maxLength={3} placeholder="555"/>
+            <input id="phone-field-1" type="tel" maxLength={3} placeholder="123"/>
+            <input id="phone-field-2" type="tel" maxLength={4} placeholder="4567"/>
+          </div>
           <button 
             type="submit" 
             className="modal-button">Submit
@@ -95,7 +100,8 @@ export class Modal extends React.Component<ModalProps, {}> {
         target.className === "modal-button" ||
         target.tagName === "LABEL" ||
         target.tagName === "P" || 
-        target.className === "modal-header" && 
+        target.className === "modal-header" ||
+        target.tagName === "INPUT" && 
         this.props.showModal
       )) 
       {
