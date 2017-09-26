@@ -1,0 +1,27 @@
+@import "colors";
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    position: fixed;
+    background-color: $header-color;
+    bottom: 0;
+    right: 0;
+    padding: 0 5px 0 0;
+    margin: 0;
+    margin-top: 20px;
+    width: 100vw;
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    img {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+    }
+
+}
+}
