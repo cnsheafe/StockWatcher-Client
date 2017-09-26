@@ -17,7 +17,7 @@ const clientBundleOutputDir = path.normalize(`${__dirname}/dist`);
 appConfig.createTsConfig(__dirname, appSettings["out-dir"]);
 
 module.exports = env => {
-    let isProd = env === "prod" ? true: false;
+    let isProd = env === "prod" ? true : false;
 
     const sharedConfig = () => ({
         stats: {
@@ -31,19 +31,7 @@ module.exports = env => {
             publicPath: "dist/"
         },
         module: {
-            rules: [{
-                    test: /\.jsx?$/,
-                    include: [
-                        appSettings["input-dir"]
-                    ],
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "es2015",
-                            "react"
-                        ]
-                    }
-                },
+            rules: [
                 {
                     test: /\.tsx?$/,
                     include: [
@@ -59,8 +47,8 @@ module.exports = env => {
                             ]
                         },
                         useCache: true
-                    }
-                },
+                }
+            },
             ]
         },
         plugins: [new CheckerPlugin()]
