@@ -4,10 +4,18 @@
 @import "search";
 @import "graphs";
 @import "modal";
+@import "footer";
+
 body {
     // background-color: $background-color;
     background-color: #ffffff;
     height: 100vh;
+    position: relative;
+    min-height: 100vh;
+}
+
+main {
+    padding-bottom: 50px;
 }
 
 .hide {
