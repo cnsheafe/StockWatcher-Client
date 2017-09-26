@@ -3,4 +3,5 @@ node_modules
 .sass-cache
 ClientApp/dist
 client.bundle*
+style.css*
 __tests__
