@@ -5,110 +5,109 @@ const merge = require("webpack-merge");
 const webpack = require("webpack");
 
 const options = {
-  "client-root": "ClientApp",
-  "input-dir": path.normalize(`${__dirname}/ClientApp/`),
-  "entry-file": path.normalize(`${__dirname}/ClientApp/src/store/actionsAsync.test.ts`),
-  "output-dir": path.normalize(`${__dirname}/__tests__`)
+    "client-root": "ClientApp",
+    "input-dir": path.normalize(`${__dirname}/ClientApp/`),
+    "entry-file": path.normalize(`${__dirname}/ClientApp/src/store/actionsAsync.test.ts`),
+    "output-dir": path.normalize(`${__dirname}/__tests__`)
 };
 
 const appSettings = appConfig.createPaths(__dirname, options);
 const clientBundleOutputDir = path.normalize(`${__dirname}/__tests__`);
 
-appConfig.createTsConfig(__dirname, appSettings["out-dir"]);
 
 module.exports = () => {
 
-  const sharedConfig = () => ({
-    resolve: {
-      extensions: [".js", ".jsx", ".ts", ".tsx"]
-    },
-    output: {
-      path: clientBundleOutputDir,
-      filename: "[name].test.js"
-    },
-    module: {
-      rules: [{
-        test: /\.ts?$/,
-        include: [
-          appSettings["input-dir"]
-        ],
-        loader: "awesome-typescript-loader",
-        options: {
-          useBabel: true,
-          babelOptions: {
-            presets: [
-              "es2015",
-              "react"
-            ]
-          },
-          useCache: true
+    const sharedConfig = () => ({
+        resolve: {
+            extensions: [".js", ".jsx", ".ts", ".tsx"]
+        },
+        output: {
+            path: clientBundleOutputDir,
+            filename: "[name].test.js"
+        },
+        module: {
+            rules: [{
+                test: /\.ts?$/,
+                include: [
+                    appSettings["input-dir"]
+                ],
+                loader: "awesome-typescript-loader",
+                options: {
+                    useBabel: true,
+                    babelOptions: {
+                        presets: [
+                            "es2015",
+                            "react"
+                        ]
+                    },
+                    useCache: true
+                }
+            }]
+        },
+        node: {
+            fs: "empty"
         }
-      }]
-    },
-    node: {
-      fs: "empty"
-    }
-  });
+    });
 
-  const actionsEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/store/actions.test.ts`);
+    const actionsEntry = path
+        .normalize(`${appSettings["input-dir"]}/src/store/actions.test.ts`);
 
-  const actionsAsyncEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/store/actionsAsync.test.ts`);
-  
-  const reducerEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/store/reducer.test.ts`)
-  
-  const componentsEntry = path
-    .normalize(`${appSettings["input-dir"]}/src/components/components.test.tsx`);
+    const actionsAsyncEntry = path
+        .normalize(`${appSettings["input-dir"]}/src/store/actionsAsync.test.ts`);
 
-  const actionsConfig = merge(sharedConfig(), {
-    entry: {
-      "actions": actionsEntry
-    }
-  });
+    const reducerEntry = path
+        .normalize(`${appSettings["input-dir"]}/src/store/reducer.test.ts`)
 
-  const actionsAsyncConfig = merge(sharedConfig(), {
-    entry: {
-      "actionsAsync": actionsAsyncEntry
-    }
-  });
+    const componentsEntry = path
+        .normalize(`${appSettings["input-dir"]}/src/components/components.test.tsx`);
 
-  const reducerConfig = merge(sharedConfig(), {
-    entry: {
-      "reducer": reducerEntry
-    }
-  });
-
-  const componentsConfig = merge(sharedConfig(), {
-    entry: {
-      "components": componentsEntry
-    },
-    module: {
-      rules: [{
-        test: /\.tsx?$/,
-        include: [
-          appSettings["input-dir"]
-        ],
-        loader: "awesome-typescript-loader",
-        options: {
-          useBabel: true,
-          babelOptions: {
-            presets: [
-              "es2015",
-              "react"
-            ]
-          },
-          useCache: true
+    const actionsConfig = merge(sharedConfig(), {
+        entry: {
+            "actions": actionsEntry
         }
-      }]
-    },
-    externals: {
-      "react/lib/ReactContext": true,
-      "react/lib/ExecutionEnvironment": true,
-      "react/addons": true
-    }
-  });
+    });
 
-  return [actionsConfig, actionsAsyncConfig, reducerConfig, componentsConfig];
+    const actionsAsyncConfig = merge(sharedConfig(), {
+        entry: {
+            "actionsAsync": actionsAsyncEntry
+        }
+    });
+
+    const reducerConfig = merge(sharedConfig(), {
+        entry: {
+            "reducer": reducerEntry
+        }
+    });
+
+    const componentsConfig = merge(sharedConfig(), {
+        entry: {
+            "components": componentsEntry
+        },
+        module: {
+            rules: [{
+                test: /\.tsx?$/,
+                include: [
+                    appSettings["input-dir"]
+                ],
+                loader: "awesome-typescript-loader",
+                options: {
+                    useBabel: true,
+                    babelOptions: {
+                        presets: [
+                            "es2015",
+                            "react"
+                        ]
+                    },
+                    useCache: true
+                }
+            }]
+        },
+        externals: {
+            "react/lib/ReactContext": true,
+            "react/lib/ExecutionEnvironment": true,
+            "react/addons": true
+        }
+    });
+
+    return [actionsConfig, actionsAsyncConfig, reducerConfig, componentsConfig];
 }
