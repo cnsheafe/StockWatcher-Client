@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>StockWatcher</title>
+</head>
+
+<body>
+    <header>
+        <h1>StockWatcher</h1>
+    </header>
+    <main>
+        <section>
+            <p class="description">
+                View graphs of stock data and set SMS alerts on specified prices.
+            </p>
+            <div class="canvas-container">
+                <canvas id="graph"></canvas>
+            </div>
+            <button id="try-button">Try It Yourself!</button>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js" integrity="sha256-uSZEyo3op39kRbkPBCvexeR9nMPfeST+u/1pxI7eQeU=" crossorigin="anonymous">
+    </script>
+    <script src="client.js"></script>
+</body>
+
+</html>
