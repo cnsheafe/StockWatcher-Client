@@ -56,29 +56,29 @@ export class Search extends React.Component<SearchProps, {}> {
     Rx.Observable.fromEvent(searchElement, "keyup")
       .debounceTime(300)
       .subscribe(() =>
-        store.dispatch(fetchCompaniesAsync(searchElement.value, true)));
-        // fetchCompanies(searchElement.value, true)
-        //   .then(json => {
-        //     store.dispatch(ListSearchResults(json));
-        //   }));
+        // store.dispatch(fetchCompaniesAsync(searchElement.value, true)));
+        fetchCompanies(searchElement.value, true)
+          .then(json => {
+            store.dispatch(ListSearchResults(json));
+          }));
   }
 }
 
-// function fetchCompanies(searchPhrase: string, isSymbol: boolean): Promise<JSON> {
-//   console.log(isSymbol.toString());
-//   const headers = new Headers({
-//     "Accept": "application/json"
-//   });
-//   let searchRequest = new Request(`https://stock-watcher-app.herokuapp.com/company/?searchphrase=${searchPhrase}&issymbol=${isSymbol.toString()}`, {
-//     method: "GET",
-//     headers: headers
-//   });
+function fetchCompanies(searchPhrase: string, isSymbol: boolean): Promise<JSON> {
+  console.log(isSymbol.toString());
+  const headers = new Headers({
+    "Accept": "application/json"
+  });
+  let searchRequest = new Request(`https://stock-watcher-app.herokuapp.com/company/?searchphrase=${searchPhrase}&issymbol=${isSymbol.toString()}`, {
+    method: "GET",
+    headers: headers
+  });
 
-//   return fetch(searchRequest)
-//     .then(res => {
-//       return res.json();
-//     });
-// }
+  return fetch(searchRequest)
+    .then(res => {
+      return res.json();
+    });
+}
 
 function mapStateToProps(state: IState): SearchProps {
   return {
