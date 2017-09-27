@@ -7,11 +7,11 @@ import { IState } from "./store";
 
 // Action Commands
 export const SEARCH = "SEARCH_RESULT";
-const LOGIN = "LOGGED_IN";
 export const ADD_GRAPH = "ADD_GRAPH";
 export const REM_GRAPH = "REMOVE_GRAPH";
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 export const ADD_WATCH = "ADD_WATCH";
+export const FETCH_COMPANIES = "FETCH_COMPANIES";
 
 // Action Interfaces
 export interface LoginAction { type: "LOGGED_IN" }
@@ -94,19 +94,45 @@ export const removeGraph: ActionCreator<RemoveGraph> = (graphId: string) => {
   }
 }
 
+export const fetchCompaniesAsync = (searchPhrase: string, isSymbol: boolean) => {
+  const headers = new Headers({
+    "Accept": "application/json"
+  });
+
+  let searchRequest = new Request(`https://stock-watcher-app.herokuapp.com/company/?searchphrase=${searchPhrase}&issymbol=${isSymbol.toString()}`, {
+    method: "GET",
+    headers: headers
+  });
+
+  return function(dispatch: Dispatch<IState>): Promise<boolean> {
+    return fetch(searchRequest)
+      .then(res => {
+        return {
+          json: res.json(),
+          status: res.status
+        }
+      })
+      .then(blob => {
+        if(blob.status === 200) {
+          dispatch<SearchResult>(ListSearchResults(blob.json));
+          return true;
+        }
+        return false;
+      });
+  }
+}
+
 export const toggleModalDisplay: ActionCreator<ToggleModalDisplay> = (symbol?: string) => {
   return {
     type: TOGGLE_MODAL,
     symbol: symbol
   }
 }
+
 export const addWatchAsync = 
   (symbol: string, 
   targetPrice: number, 
   phoneNumber: string) => {
-  console.log(symbol);
-  console.log(targetPrice);
-  console.log(phoneNumber);
   return function(dispatch: Dispatch<IState>): Promise<boolean> {
     let header;
       header = new Headers({"Content-Type": "application/json"});
