@@ -1,0 +1,75 @@
+body {
+  height: 100vh;
+  background-color: #e8e1e1; }
+
+.container, header, section {
+  display: flex;
+  width: 80vw;
+  margin: auto; }
+
+header {
+  width: 100vw;
+  font-family: "Arvo", serif;
+  font-size: 30px;
+  color: white;
+  justify-content: center;
+  background-color: #00838F; }
+  header h1 {
+    font-size: 22px; }
+    @media screen and (min-width: 576px) {
+      header h1 {
+        font-size: 26px; } }
+    @media screen and (min-width: 768px) {
+      header h1 {
+        font-size: 30px; } }
+    @media screen and (min-width: 992px) {
+      header h1 {
+        font-size: 36px; } }
+
+section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Lato", sans-serif;
+  justify-content: center;
+  margin: auto; }
+  section .description {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #00838F; }
+    @media screen and (min-width: 576px) {
+      section .description {
+        font-size: 22px; } }
+    @media screen and (min-width: 768px) {
+      section .description {
+        font-size: 26px; } }
+    @media screen and (min-width: 992px) {
+      section .description {
+        font-size: 30px; } }
+  section button {
+    width: 50%;
+    margin: auto;
+    height: 80px;
+    background-color: #00838F;
+    color: white;
+    border: 3px solid #FF9100;
+    border-radius: 5px;
+    font-size: 22px;
+    cursor: pointer; }
+    @media screen and (min-width: 576px) {
+      section button {
+        width: 40%; } }
+  section .canvas-container {
+    position: relative;
+    box-sizing: border-box;
+    height: 60vh;
+    padding-bottom: 40px; }
+    @media screen and (min-width: 576px) {
+      section .canvas-container {
+        height: 50vh; } }
+    @media screen and (min-width: 768px) {
+      section .canvas-container {
+        height: 40vh; } }
+
+/*# sourceMappingURL=style.css.map */

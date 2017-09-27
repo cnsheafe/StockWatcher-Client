@@ -1,0 +1,97 @@
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$background-color: #e8e1e1;
+$accent-color: #FF9100;
+$header-color: #00838F;
+
+body {
+    height: 100vh;
+    background-color: $background-color;
+}
+
+.container {
+    display: flex;
+    width: 80vw;
+    margin: auto;
+}
+
+header {
+    @extend .container;
+    width: 100vw;
+    font-family: "Arvo", serif;
+    font-size: 30px;
+    color: white;
+    justify-content: center;
+    background-color: $header-color;
+
+    h1 {
+        font-size: 22px;
+        @media screen and (min-width: 576px) {
+            font-size: 26px;
+        }
+        @media screen and (min-width: 768px) {
+            font-size: 30px;
+        }
+        @media screen and (min-width: 992px) {
+            font-size: 36px;           
+        }
+    }
+}
+
+section {
+    @extend .container;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: "Lato", sans-serif;
+    justify-content: center;
+    margin: auto;
+
+    .description {
+        font-size: 18px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: $header-color;
+
+        @media screen and (min-width: 576px) {
+            font-size: 22px;
+        }
+        @media screen and (min-width: 768px) {
+            font-size: 26px;
+        }
+        @media screen and (min-width: 992px) {
+            font-size: 30px;
+        }
+    }
+
+    button {
+        width: 50%;
+        margin: auto;
+        height: 80px;
+        background-color: $header-color;
+        color: white;
+        border: 3px solid $accent-color;
+        border-radius: 5px;
+        font-size: 22px;
+        @media screen and (min-width: $small) {
+            width: 40%;
+        }
+        cursor: pointer;
+    }
+    
+    .canvas-container {
+        position: relative;
+        box-sizing: border-box;
+        height: 60vh;
+        padding-bottom: 40px;
+        // background-color: white;
+        @media screen and (min-width: $small) {
+            height: 50vh;
+        }
+        @media screen and (min-width: $medium) {
+            height: 40vh;
+        }
+    }
+}
+
