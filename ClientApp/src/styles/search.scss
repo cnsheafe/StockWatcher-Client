@@ -10,8 +10,6 @@
         font-size: 3.8vw;
         margin-left: 10vw;
         margin-bottom: 5px;
-        // color: $accent-purple-color;
-        // color: #ffffff;
         color: $header-color;
         @media screen and (min-width: $small) {
             font-size: 2.7vw;
@@ -61,7 +59,7 @@
         @media screen and (min-width: $medium) {
             font-size: 1.8vw;
         }
-        :hover {
+         :hover {
             cursor: pointer;
             background-color: #BDBDBD;
         }
@@ -71,8 +69,6 @@
             border-top: 1px solid gray;
             padding-top: 8px;
             align-items: center;
-
-
             .material-icons.purple700 {
                 // color: $accent-purple-dark-color;
                 color: $accent-purple-light-color;
@@ -81,10 +77,8 @@
                 font-size: 36px;
             }
         }
-
         .search-suggestions-item:first-child {
             border-top: 0;
         }
-
     }
 }

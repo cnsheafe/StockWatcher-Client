@@ -1,7 +1,5 @@
 @import "colors";
 @import "grid";
-
-
 .modal {
     position: fixed;
     display: flex;
@@ -12,10 +10,11 @@
     right: 0;
     margin: auto;
     overflow: auto;
-    background-color:rgba(#ffffff,1);
+    background-color: rgba(#ffffff, 1);
     z-index: 100;
     border: $accent-color 3px solid;
     padding: 10px;
+    font-family: "Lato", sans-serif;
     @media screen and (min-width: $small) {
         width: 50vw;
         top: 20vh;
@@ -27,13 +26,10 @@
     @media screen and (min-width: $large) {
         width: 30vw;
     }
-
-
     .modal-form {
         display: flex;
         flex-direction: column;
     }
-
     .modal-header {
         font-family: "Arvo", serif;
         font-size: 24px;
@@ -41,20 +37,17 @@
         text-align: center;
         margin: 10px auto;
     }
-
     .modal-explanation {
         font-family: "Lato", sans-serif;
     }
-
     .modal-price {
         width: 30%;
         margin-bottom: 5px;
         -moz-appearance: textfield;
         -webkit-appearance: textfield;
     }
-
     .modal-phone {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         display: flex;
         flex-direction: row;
         input {
@@ -70,7 +63,6 @@
             width: 25%;
         }
     }
-
 }
 
 .dim-background::after {
