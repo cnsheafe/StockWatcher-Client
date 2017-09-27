@@ -107,18 +107,16 @@ export const fetchCompaniesAsync = (searchPhrase: string, isSymbol: boolean) => 
   return function(dispatch: Dispatch<IState>): Promise<boolean> {
     return fetch(searchRequest)
       .then(res => {
-        return {
-          json: res.json(),
-          status: res.status
+        if (res.status === 200) {
+          console.log(res.json());
+          return res.json();
         }
+        return null;
       })
-      .then(blob => {
-        if(blob.status === 200) {
-          dispatch<SearchResult>(ListSearchResults(blob.json));
+      .then(json => {
+          dispatch<SearchResult>(ListSearchResults(json));
           return true;
-        }
-        return false;
-      });
+        });
   }
 }
 
