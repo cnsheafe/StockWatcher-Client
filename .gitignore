@@ -3,4 +3,3 @@ node_modules
 .sass-cache
 ClientApp/dist
 client.bundle*
-__tests__

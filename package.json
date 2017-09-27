@@ -4,7 +4,8 @@
     "description": "Set up SMS notifications for stock prices",
     "main": "index.js",
     "scripts": {
-        "test": "webpack --config webpack.test.config.js && jest",
+        "test": "jest",
+        "test-ts": "webpack --config webpack.test.config.js && jest",
         "sass": "sass --watch ClientApp/src/styles/main.scss:dist/style.css",
         "sass-land": "sass --watch LandingPage/style.scss:style.css",
         "server": "webpack-dev-server",
