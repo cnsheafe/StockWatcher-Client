@@ -1,6 +1,5 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import * as nock from "nock";
 import * as actions from "./actions";
 import { Company } from "./schema";
 
