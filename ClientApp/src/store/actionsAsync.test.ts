@@ -7,6 +7,47 @@ const middleware = [thunk];
 
 const mockStore = configureMockStore(middleware);
 
+describe("fetchCompaniesAsync", () => {
+  let store;
+  beforeAll(() => {
+    store = mockStore({
+      searchResults: []
+    });
+  });
+
+  it(`should fetch the matching companies
+    and dispatch SearchResults
+    and return true after a successful call`, () => {
+      const actionCreator = actions.fetchCompaniesAsync;
+      const searchPhrase: string = "msf";
+      const isSymbol: boolean = true;
+
+      const res = true;
+    function mockResponse(status: number, response) {
+      let blobbedRes = new Blob([JSON.stringify(response)]);
+      return new Response(blobbedRes,
+        {
+          status: status,
+          headers: new Headers({ "Content-Type": "application/json" })
+        });
+    }
+
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve(mockResponse(200, res)));
+
+    const expectedActions = [{
+      type: actions.SEARCH,
+      results: Promise.resolve({})
+    }];
+
+    return store.dispatch(actionCreator(searchPhrase, isSymbol))
+      .then((status) => {
+        console.log(status);
+        expect(status).toBe(true);
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    });
+})
 
 describe("addWatchAsync", () => {
   let store;
