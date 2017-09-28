@@ -87,11 +87,7 @@ export class Modal extends React.Component<ModalProps, {}> {
     }
 
     this.mouseCallback = (event: MouseEvent) => {
-      console.log(event.target);
-      console.log(this.props.showModal);
       const target = event.target as HTMLElement;
-      console.log(target.tagName);
-      console.log(target.className);
       if(!(
         target.className === "modal" ||
         target.className === "modal-price" || 

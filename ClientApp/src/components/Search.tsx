@@ -20,7 +20,6 @@ export class Search extends React.Component<SearchProps, {}> {
       name: element.dataset.company,
       symbol: element.dataset.symbol
     }
-    console.log(company);
     store.dispatch(addGraphAsync(company));
   }
   render() {
@@ -65,7 +64,6 @@ export class Search extends React.Component<SearchProps, {}> {
 }
 
 function fetchCompanies(searchPhrase: string, isSymbol: boolean): Promise<JSON> {
-  console.log(isSymbol.toString());
   const headers = new Headers({
     "Accept": "application/json"
   });

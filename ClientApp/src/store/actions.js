@@ -31,7 +31,6 @@ exports.addGraphAsync = function (company) {
             return res.json();
         })
             .then(function (json) {
-            console.log(json);
             var dataPoints = [];
             var labels = [];
             for (var i = json.length - 1; i >= 0; i--) {
@@ -105,7 +104,6 @@ exports.addWatchAsync = function (symbol, targetPrice, phoneNumber) {
             return res.status;
         })
             .then(function (status) {
-            console.log(status);
             if (status === 201) {
                 dispatch({
                     type: exports.TOGGLE_MODAL

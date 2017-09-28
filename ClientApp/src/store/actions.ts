@@ -67,7 +67,6 @@ export const addGraphAsync =
           return res.json();
         })
         .then((json) => {
-          console.log(json);
           let dataPoints = [];
           let labels = [];
 
@@ -108,7 +107,6 @@ export const fetchCompaniesAsync = (searchPhrase: string, isSymbol: boolean) => 
     return fetch(searchRequest)
       .then(res => {
         if (res.status === 200) {
-          console.log(res.json());
           return res.json();
         }
         return null;
@@ -158,7 +156,6 @@ export const addWatchAsync =
         return res.status;
       })
       .then(status => {
-        console.log(status);
         if (status === 201) {
           dispatch<ToggleModalDisplay>({
             type: TOGGLE_MODAL
