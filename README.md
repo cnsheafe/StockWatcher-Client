@@ -32,6 +32,7 @@ Development Tools
 * Webpack
 * SCSS
 * Jest
+* Travis CI
 
 Instructions for Development
 -
