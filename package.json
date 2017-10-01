@@ -7,7 +7,7 @@
         "test": "jest",
         "test-ts": "webpack --config webpack.test.config.js && jest",
         "sass": "sass --watch ClientApp/src/styles/main.scss:dist/style.css",
-        "sass-land": "sass --watch LandingPage/style.scss:style.css",
+        "sass-land": "sass --watch LandingPage/style.scss:docs/style.css",
         "server": "webpack-dev-server",
         "build-dev": "webpack",
         "build-prod": "webpack --env prod"
