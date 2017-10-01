@@ -1,6 +1,9 @@
 body {
   height: 100vh;
-  background-color: #e8e1e1; }
+  background-color: white; }
+
+canvas {
+  border: 3px solid #FF9100; }
 
 .container, header, section {
   display: flex;
@@ -51,15 +54,19 @@ section {
     width: 50%;
     margin: auto;
     height: 80px;
-    background-color: #00838F;
-    color: white;
+    background-color: white;
+    color: #00838F;
     border: 3px solid #FF9100;
     border-radius: 5px;
     font-size: 22px;
+    font-weight: bold;
     cursor: pointer; }
     @media screen and (min-width: 576px) {
       section button {
+        font-size: 26px;
         width: 40%; } }
+  section button:hover {
+    background-color: #ffff7a; }
   section .canvas-container {
     position: relative;
     box-sizing: border-box;
