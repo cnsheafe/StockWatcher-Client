@@ -7,7 +7,11 @@ $header-color: #00838F;
 
 body {
     height: 100vh;
-    background-color: $background-color;
+    background-color: white;
+}
+
+canvas {
+    border: 3px solid $accent-color;
 }
 
 .container {
@@ -69,23 +73,28 @@ section {
         width: 50%;
         margin: auto;
         height: 80px;
-        background-color: $header-color;
-        color: white;
+        background-color: white;
+        color: $header-color;
         border: 3px solid $accent-color;
         border-radius: 5px;
         font-size: 22px;
+        font-weight: bold;
         @media screen and (min-width: $small) {
+            font-size: 26px;
             width: 40%;
         }
         cursor: pointer;
     }
+    button:hover {
+        background-color: #ffff7a;
+    }
+
     
     .canvas-container {
         position: relative;
         box-sizing: border-box;
         height: 60vh;
         padding-bottom: 40px;
-        // background-color: white;
         @media screen and (min-width: $small) {
             height: 50vh;
         }
